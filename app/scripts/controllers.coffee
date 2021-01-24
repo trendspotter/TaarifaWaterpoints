@@ -130,7 +130,13 @@ angular.module('taarifaWaterpointsApp')
       map.addWaterpoints([$scope.form])
       map.zoomToMarkers()
     , (reason) ->
+      modalSpinner.close()
       flash.error = gettext("Geolocation failed:") + " #{reason}"
+      $scope.form.location = coordinates: [-6.0, 36.0]
+      map = Map("editMap", {})
+      map.clearMarkers()
+      map.addWaterpoints([$scope.form])
+      map.zoomToMarkers()
     $scope.save = () ->
       Waterpoint.save $scope.form, (waterpoint) ->
         if waterpoint._status == 'OK'
