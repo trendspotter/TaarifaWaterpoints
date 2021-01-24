@@ -19,6 +19,7 @@ angular.module('taarifaWaterpointsApp')
       current: gettextCatalog.currentLanguage
       available:
         en: "English"
+        cs_CZ: "Čeština"
         sw_TZ: "Swahili"
 
     $scope.$watch "languages.current", (lang) ->
